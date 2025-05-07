@@ -127,7 +127,20 @@ interface Product {
     price: number;
   }
   
-function getMostExpensiveProduct(products: Product[]): Product | null
+function getMostExpensiveProduct(products: Product[]): Product | null {
+    if(products.length == 0){
+        return null;
+    }
+    
+    let expensiveProduct = products[0];
+    for(let item of products){
+        if(item.price>expensiveProduct.price){
+            expensiveProduct = item;
+        }
+    }
+    return expensiveProduct;
+    
+}
 
 const products = [
 { name: "Pen", price: 10 },
@@ -135,10 +148,54 @@ const products = [
 { name: "Bag", price: 50 }
 ];
 
-getMostExpensiveProduct(products);  
+//console.log(getMostExpensiveProduct(products));  
 // Output: { name: "Bag", price: 50 }
-/*
-*/
+
 
 /*
+Define an enum Day for the days of the week.
+Create a function that returns "Weekday" or "Weekend" based on the input day.
 */
+enum Day {
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday,
+    Sunday
+}
+  
+function getDayType(day: Day): string{
+    if(day === Day.Saturday || day === Day.Sunday){
+        return "Weekend"
+    }
+    else return "Weekday"
+}
+
+//console.log(getDayType(Day.Monday));   // Output: "Weekday"
+//console.log(getDayType(Day.Sunday));   // Output: "Weekend"
+
+
+/*
+Description: Create an async function that:
+
+Returns the square of a number after 1 second
+Rejects if the number is negative
+*/
+async function squareAsync(n: number): Promise<number>{
+    return new Promise<number>((resolve, reject) => {
+    if(n<0){
+        reject("Error: Negative number not allowed");  
+    }
+    else {
+        setTimeout(()=>{
+        resolve(n * n);}
+    , 1000)
+    }
+}); 
+};
+
+//squareAsync(4).then(console.log);        // Output after 1s: 16
+//squareAsync(-3).catch(console.error);    // Output: Error: Negative number not allowed
+
