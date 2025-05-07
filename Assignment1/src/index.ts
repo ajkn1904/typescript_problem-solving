@@ -7,20 +7,18 @@ If the boolean is false, return the string in lowercase.
 
 function formatString(input: string, toUpper?: boolean): string{
     if(toUpper === false){
-        console.log(input.toLowerCase());
-        return ("");
+        return input.toLowerCase();
     }
     else {
-        console.log(input.toUpperCase());
-        return ("");
+        return input.toUpperCase();
     }
 }
     
-/*
-formatString("Hello");          // Output: "HELLO"
-formatString("Hello", true);   // Output: "HELLO"
-formatString("Hello", false);  // Output: "hello"
-*/
+
+console.log(formatString("Hello"));          // Output: "HELLO"
+console.log(formatString("Hello", true));   // Output: "HELLO"
+console.log(formatString("Hello", false));  // Output: "hello"
+
 
 /*
 Description: Create a function that filters an array of objects by the rating property, returning only items with a rating of 4 or more.
@@ -39,26 +37,22 @@ const books = [
     { title: "Book F", rating: 5.5 }
     ];
     
-    const res = filterByRating(books); 
-    //console.log(res);
+    console.log(filterByRating(books)); 
     // Output: [ { title: "Book A", rating: 4.5 }, { title: "Book C", rating: 5.0 } ]
 
 /*
 Description: Create a generic function that concatenates multiple arrays of the same type using rest parameters.
 */
 function concatenateArrays<T>(...arrays: T[][]): T[]{
-    const arr : T[] = [];
+    const newArr : T[] = [];
     for(let i of arrays){
-        arr.push(...i)
+        newArr.push(...i)
     }
-    return arr;
+    return newArr;
 }
 
-const res1 = concatenateArrays(["a", "b"], ["c"]);       // Output: ["a", "b", "c"]
-const res2 = concatenateArrays([1, 2], [3, 4], [5]);     // Output: [1, 2, 3, 4, 5]
-
-// console.log(res1);
-// console.log(res2);
+console.log(concatenateArrays(["a", "b"], ["c"]));       // Output: ["a", "b", "c"]
+console.log(concatenateArrays([1, 2], [3, 4], [5]));     // Output: [1, 2, 3, 4, 5]
 
 
 /*
@@ -92,8 +86,8 @@ class Car extends Vehicle{
 }
 
 const myCar = new Car("Toyota", 2020, "Corolla");
-//myCar.getInfo();   // Output: "Make: Toyota, Year: 2020"
-//myCar.getModel();  // Output: "Model: Corolla"
+myCar.getInfo();   // Output: "Make: Toyota, Year: 2020"
+myCar.getModel();  // Output: "Model: Corolla"
     
 
 
@@ -115,8 +109,8 @@ function processValue(value: string | number): number{
 
 
 
-//console.log(processValue("hello"));// Output: 5
-//console.log(processValue(10));     // Output: 20
+console.log(processValue("hello"));// Output: 5
+console.log(processValue(10));     // Output: 20
 
 
 /*
@@ -148,7 +142,7 @@ const products = [
 { name: "Bag", price: 50 }
 ];
 
-//console.log(getMostExpensiveProduct(products));  
+console.log(getMostExpensiveProduct(products));  
 // Output: { name: "Bag", price: 50 }
 
 
@@ -173,8 +167,8 @@ function getDayType(day: Day): string{
     else return "Weekday"
 }
 
-//console.log(getDayType(Day.Monday));   // Output: "Weekday"
-//console.log(getDayType(Day.Sunday));   // Output: "Weekend"
+console.log(getDayType(Day.Monday));   // Output: "Weekday"
+console.log(getDayType(Day.Sunday));   // Output: "Weekend"
 
 
 /*
@@ -196,6 +190,6 @@ async function squareAsync(n: number): Promise<number>{
 }); 
 };
 
-//squareAsync(4).then(console.log);        // Output after 1s: 16
-//squareAsync(-3).catch(console.error);    // Output: Error: Negative number not allowed
+squareAsync(4).then(console.log);        // Output after 1s: 16
+squareAsync(-3).catch(console.error);    // Output: Error: Negative number not allowed
 
