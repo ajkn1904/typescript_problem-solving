@@ -26,6 +26,7 @@ console.log(getFruitProperty(apple, "color"));
 ```
 Here `FruitKeys` creating a union of string literal with the keys (`name`, `shape` and `color`) of `Fruit` type. It's like `FruitKeys = "name" | "shape" | "color"`
 And we can do the same thing with `keyof` operator except writing it manually.
+
 ---
 
 
